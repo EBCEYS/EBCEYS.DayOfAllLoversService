@@ -28,6 +28,7 @@ namespace EBCEYS.DayOfAllLoversService
                     Console.WriteLine(" * start - starts the service.");
                     Console.WriteLine(" * delete - uninstalls the service.");
                     Console.WriteLine(" * stop - stops the service.");
+                    Console.WriteLine(" * status - shows service status");
                     return;
                 }
                 WindowsServiceHelperClient service = new(serviceName);
@@ -102,6 +103,12 @@ namespace EBCEYS.DayOfAllLoversService
                 {
                     service.StopService();
                     Console.WriteLine($"Current service status is {service.GetServiceStatus()}");
+                    return;
+                }
+                if (args[0] == "status")
+                {
+                    System.ServiceProcess.ServiceControllerStatus? status = service.GetServiceStatus();
+                    Console.WriteLine($"Service status is {status}");
                     return;
                 }
                 Console.WriteLine("Unknown command! Enter \"help\" key.");

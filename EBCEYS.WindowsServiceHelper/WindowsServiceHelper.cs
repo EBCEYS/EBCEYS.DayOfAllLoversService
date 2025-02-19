@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
-using System.Management;
 using System.Runtime.Versioning;
 using System.ServiceProcess;
 
 namespace EBCEYS.WindowsServiceHelper
 {
     [SupportedOSPlatform("windows")]
+    [Obsolete("It's better to use new lib")]
     public class WindowsServiceHelperClient : IDisposable
     {
         public string ServiceName { get; }
